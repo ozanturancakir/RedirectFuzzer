@@ -12,3 +12,11 @@ python3 RedirectFuzzer.py -i urls.txt --payload-file targetdomains.txt -o result
 ## Gereksinimler
 - Python 3.8+
 - requests, termcolor, pyfiglet
+
+
+
+## 💻 Kullanım (Usage)
+
+Aracın çalıştırılması ve parametreleri aşağıdadır:
+
+![RedirectFuzzer Kullanım Ekran Görüntüsü](images/help.png)
