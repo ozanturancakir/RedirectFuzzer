@@ -25,8 +25,8 @@ def banner():
     """Aracın başlığını basar."""
     text = pyfiglet.figlet_format("Redirect Fuzzer", font="slant")
     print(colored(text, 'magenta'))
-    print(colored("   			Open Redirect Zafiyet Denetleyicisi", 'yellow') + "\n")
-    print(colored("       				   Ozan Turan Çakır", 'yellow') + "\n")
+    print(colored("            Open Redirect Vulnerability Scanner", 'yellow') + "\n")
+    print(colored("                       Ozan Turan Çakır", 'yellow') + "\n")
     print("-" * 50)
 
 def run_fuzzing(parsed_url, param_to_fuzz, payload_encoded, payload_target, timeout, temp_query_params):
@@ -116,23 +116,23 @@ def main():
     banner()
     
     parser = argparse.ArgumentParser(
-        description=colored('RedirectFuzzer.py: Open Redirect zafiyetlerini dener.', 'cyan'),
-        epilog=colored('Kullanım Örneği: python3 RedirectFuzzer.py -i redirect.txt --payload-file targetdomains.txt -o sonuç.txt', 'yellow'),
+        description=colored('RedirectFuzzer.py: Tests for Open Redirect vulnerabilities.', 'cyan'),
+        epilog=colored('Example Usage: python3 RedirectFuzzer.py -i redirect.txt --payload-file targetdomains.txt -o results.txt', 'yellow'),
         formatter_class=argparse.RawTextHelpFormatter
     )
     
     parser.add_argument('-i', '--input', type=str, required=True, 
-                        help=colored('Potansiyel Open Redirect URL\'lerini içeren dosya.', 'green'))
+                        help=colored('File containing potential Open Redirect URLs.', 'green'))
     
     parser.add_argument('--payload-file', type=str, required=True,
-                        help=colored('Denenecek(Yönlendirmesini istediğimiz) hedef liste(Örneğin, targetdomains.txt)', 'red'))
+                        help=colored('File containing target domains to test redirection against (e.g., targetdomains.txt).', 'red'))
                         
     parser.add_argument('-w', '--workers', type=int, default=DEFAULT_WORKERS, 
-                        help=f'Eş zamanlı iş parçacığı sayısı (varsayılan: {DEFAULT_WORKERS}).')
+                        help=f'Number of concurrent threads (default: {DEFAULT_WORKERS}).')
     parser.add_argument('-t', '--timeout', type=int, default=DEFAULT_TIMEOUT, 
-                        help=f'Bağlantı zaman aşımı sn (varsayılan: {DEFAULT_TIMEOUT}).')
+                        help=f'Connection timeout in seconds (default: {DEFAULT_TIMEOUT}).')
     parser.add_argument('-o', '--output', type=str, default=None, 
-                        help='Başarılı sonuçların yazılacağı dosya.')
+                        help='File to write successful results into.')
     
     args = parser.parse_args()
 
