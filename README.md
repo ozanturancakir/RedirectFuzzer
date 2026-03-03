@@ -12,7 +12,6 @@ An intelligent Open Redirect vulnerability scanner for security researchers.
 **Redirect Fuzzer** is a robust security tool designed to detect Open Redirect vulnerabilities across multiple URLs. By fuzzing all query parameters with various payloads, it helps security researchers quickly identify potential redirect risks.
 
 ### 🔑 Features:
-* Automatically identifies query parameters that are likely to be vulnerable (`redirect`, `url`, `next`, `return`, `goto`, etc.).
 * Tests each parameter with single and double URL-encoded payloads.
 * Detects successful redirects where the final URL starts with the injected payload.
 * Outputs successful vulnerabilities immediately to console and optionally to a file.
@@ -29,4 +28,5 @@ An intelligent Open Redirect vulnerability scanner for security researchers.
 
 ## ⚙️ Usage:
 ```bash
-python3 RedirectFuzzer.py -i targets.txt --payload-file redirect_payloads.txt -o results.txt
+python3 RedirectFuzzer.py -i targets.txt --payload-file redirect_payloads.txt
+python3 RedirectFuzzer.py -i targets.txt --payload-file redirect_payloads.txt -w 20 -o results.txt
